@@ -33,7 +33,16 @@ The system supports a repeatable data harmonisation process for Tasmanian Leader
 ## Team
 
 KIT300 Data Harmonisation Evaluation Dashboard Team.
+## Sprint 2 Development Responsibilities
 
+| Team Member | Responsibility |
+| --- | --- |
+| **Paritosh Upadhyay** | Overview and Export pages - frontend and backend |
+| **Mayur Sachin Borkar** | Datasets and Mapping pages - frontend and backend |
+| **Rabbi** | Scale and Validation pages - frontend and backend |
+| **Promit Das Midul** | Rule Library and manual Add/Edit Rule functionality - frontend and backend |
+| **Srabanty Deb** | UI/UX design and frontend visual refinement |
+| **Kanchan Karki** | UI/UX design and frontend visual refinement |
 ## Privacy
 
 Confidential client data, personal information, credentials, and environment files must not be uploaded to this repository.
