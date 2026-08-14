@@ -41,6 +41,32 @@
   background: #0c6b51;
 }
 
+.page-error {
+  background: #fbe7e5;
+  color: #c0392b;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.retry-button {
+  background: none;
+  border: none;
+  color: #c0392b;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.loading-state {
+  padding: 40px;
+  text-align: center;
+  color: #6b7a8d;
+  font-size: 14px;
+}
+
 .rule-table-container {
   background: #fff;
   border: 1px solid #e3e8ee;
@@ -110,6 +136,7 @@
 
 .edit-button {
   color: #0f2942;
+  margin-right: 6px;
 }
 
 .edit-button:hover {
@@ -160,6 +187,15 @@
   font-size: 20px;
 }
 
+.form-error {
+  background: #fbe7e5;
+  color: #c0392b;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;
@@ -207,6 +243,11 @@
   cursor: pointer;
 }
 
+.cancel-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .save-button {
   background: #0f7d5f;
   color: #fff;
@@ -221,6 +262,16 @@
 .save-button:disabled {
   background: #a9c3ba;
   cursor: not-allowed;
+}
+
+@media (max-width: 700px) {
+  .rule-library-header {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .add-rule-button {
+    width: 100%;
+  }
 }
 
 @media (max-width: 560px) {
