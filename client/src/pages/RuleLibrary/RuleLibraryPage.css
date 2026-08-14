@@ -1,0 +1,233 @@
+.rule-library-page {
+  padding: 24px 32px 48px;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  color: #1c2b3a;
+}
+
+.rule-library-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.rule-library-header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f2942;
+  margin: 0 0 6px;
+}
+
+.rule-library-header p {
+  color: #6b7a8d;
+  font-size: 14px;
+  margin: 0;
+  max-width: 480px;
+}
+
+.add-rule-button {
+  background: #0f7d5f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.add-rule-button:hover {
+  background: #0c6b51;
+}
+
+.rule-table-container {
+  background: #fff;
+  border: 1px solid #e3e8ee;
+  border-radius: 12px;
+  padding: 8px;
+  overflow-x: auto;
+}
+
+.rule-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.rule-table th {
+  text-align: left;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #6b7a8d;
+  padding: 12px 14px;
+  border-bottom: 1px solid #e3e8ee;
+}
+
+.rule-table td {
+  padding: 14px;
+  border-bottom: 1px solid #eef1f5;
+  vertical-align: top;
+}
+
+.rule-table tr:last-child td {
+  border-bottom: none;
+}
+
+.status {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status.active {
+  background: #e3f6ee;
+  color: #0f7d5f;
+}
+
+.status.review {
+  background: #fdf2df;
+  color: #a9720f;
+}
+
+.status.draft {
+  background: #eef1f5;
+  color: #55677c;
+}
+
+.edit-button,
+.delete-button {
+  background: none;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+
+.edit-button {
+  color: #0f2942;
+}
+
+.edit-button:hover {
+  text-decoration: underline;
+}
+
+.delete-button {
+  color: #c0392b;
+}
+
+.delete-button:hover {
+  text-decoration: underline;
+}
+
+.empty-row {
+  text-align: center;
+  color: #9aa8b8;
+  padding: 28px;
+}
+
+/* Modal */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 41, 66, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 20px;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 32px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(15, 41, 66, 0.25);
+}
+
+.modal-content h2 {
+  margin: 0 0 18px;
+  color: #0f2942;
+  font-size: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #45566a;
+}
+
+.form-group input,
+.form-group select {
+  font-size: 14px;
+  color: #1c2b3a;
+  border: 1px solid #d7dde5;
+  border-radius: 8px;
+  padding: 9px 11px;
+  font-family: inherit;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cancel-button {
+  background: #eef1f5;
+  color: #1c2b3a;
+  border: 1px solid #d7dde5;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.save-button {
+  background: #0f7d5f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.save-button:disabled {
+  background: #a9c3ba;
+  cursor: not-allowed;
+}
+
+@media (max-width: 560px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .rule-library-page {
+    padding: 16px;
+  }
+}
