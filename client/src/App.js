@@ -1,8 +1,8 @@
 import React from "react";
-import DatasetsPage from "./pages/Datasets/DatasetsPage";
+import ScalePage from "./pages/Scale/ScalePage";
 
 function App() {
-  return <DatasetsPage />;
+  return <ScalePage />;
 }
 
 export default App;

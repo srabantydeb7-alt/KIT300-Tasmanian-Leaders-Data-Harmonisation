@@ -1,0 +1,251 @@
+.scale-page {
+    padding: 32px;
+    background: #f7f9fb;
+    min-height: 100vh;
+    color: #17344d;
+  }
+  
+  .scale-header {
+    margin-bottom: 28px;
+  }
+  
+  .scale-header h1 {
+    margin: 0 0 10px;
+    font-size: 34px;
+  }
+  
+  .scale-header p {
+    margin: 0;
+    color: #6e7782;
+    font-size: 17px;
+  }
+  
+  .scale-top-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .scale-card {
+    background: #ffffff;
+    border: 1px solid #d9e0e6;
+    border-radius: 12px;
+    padding: 28px;
+    box-sizing: border-box;
+  }
+  
+  .scale-card h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 20px;
+  }
+  
+  .card-heading-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .card-heading-row h2 {
+    margin-bottom: 0;
+  }
+  
+  .detected-badge {
+    background: #e7f4f2;
+    color: #177f75;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  
+  .card-description {
+    color: #6e7782;
+    line-height: 1.5;
+    margin: 18px 0 22px;
+  }
+  
+  .scale-input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+  
+  .scale-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  
+  .scale-form-group label {
+    font-size: 14px;
+    color: #68727d;
+    font-weight: 600;
+  }
+  
+  .scale-form-group input {
+    padding: 11px 12px;
+    border: 1px solid #d5dce3;
+    border-radius: 7px;
+    background: #f8fafb;
+    font-size: 14px;
+  }
+  
+  .scale-summary {
+    margin-top: 22px;
+    padding: 14px;
+    background: #f8fafb;
+    border-radius: 8px;
+    color: #68727d;
+  }
+  
+  .scale-summary strong {
+    color: #17344d;
+  }
+  
+  .confirm-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 8px;
+    background: #2c69e8;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .success-message {
+    margin: 14px 0 0;
+    color: #177f75;
+    font-weight: 600;
+  }
+  
+  .preview-card {
+    margin-bottom: 24px;
+  }
+  
+  .preview-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: end;
+    gap: 24px;
+    max-width: 700px;
+  }
+  
+  .conversion-arrow {
+    font-size: 28px;
+    padding-bottom: 8px;
+    color: #6e7782;
+  }
+  
+  .conversion-result {
+    min-height: 42px;
+    padding: 11px 14px;
+    background: #edf4ff;
+    border: 1px solid #cdddf7;
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .conversion-result span {
+    color: #68727d;
+    font-size: 14px;
+  }
+  
+  .conversion-result strong {
+    color: #17344d;
+    font-size: 18px;
+  }
+  
+  .warning-message {
+    margin-top: 18px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: #fff6df;
+    color: #b7790b;
+    font-weight: 600;
+  }
+  
+  .error-message {
+    margin-top: 18px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: #fdecec;
+    color: #b64242;
+    font-weight: 600;
+  }
+  
+  .formula-box {
+    margin-top: 22px;
+    padding: 16px;
+    background: #f8fafb;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .formula-box span {
+    color: #6e7782;
+  }
+  
+  .next-step-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .next-step-card h2 {
+    margin-bottom: 8px;
+  }
+  
+  .next-step-card p {
+    margin: 0;
+    color: #6e7782;
+  }
+  
+  .validation-button {
+    padding: 11px 20px;
+    border: 0;
+    border-radius: 8px;
+    background: #177f75;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  
+  .validation-button:disabled {
+    background: #aeb8c1;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 900px) {
+    .scale-top-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .scale-input-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .preview-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .conversion-arrow {
+      transform: rotate(90deg);
+      text-align: center;
+      padding: 0;
+    }
+  
+    .next-step-card {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
