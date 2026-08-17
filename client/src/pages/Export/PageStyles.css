@@ -1,0 +1,295 @@
+.export-page {
+  min-height: 100vh;
+  padding: 32px;
+  box-sizing: border-box;
+  color: #17344d;
+  background: #f7f9fb;
+}
+
+.export-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 30px;
+}
+
+.export-header h1 {
+  margin: 0 0 10px;
+  font-size: 34px;
+  line-height: 1.2;
+}
+
+.export-header p {
+  margin: 0;
+  color: #6e7782;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.export-status {
+  flex-shrink: 0;
+  padding: 14px 22px;
+  border-radius: 12px;
+  color: #954508;
+  background: #fff0bd;
+  font-weight: 700;
+}
+
+.export-layout {
+  display: grid;
+  grid-template-columns: minmax(340px, 0.8fr) minmax(500px, 1.25fr);
+  gap: 30px;
+}
+
+.export-card {
+  padding: 28px;
+  border: 1px solid #d9e0e6;
+  border-radius: 12px;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+
+.export-card h2 {
+  margin: 0 0 22px;
+  font-size: 20px;
+}
+
+.export-right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Selectable output options */
+
+.selectable-outputs-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.export-options {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.export-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.export-option input {
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  margin: 0;
+  accent-color: #2c69e8;
+  cursor: pointer;
+}
+
+.export-option-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.export-option-text strong {
+  font-size: 16px;
+}
+
+.export-option-text small {
+  color: #76808b;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.export-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.export-button,
+.validation-button {
+  border: 0;
+  border-radius: 9px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.download-button {
+  color: #ffffff;
+  background: #17344d;
+}
+
+.download-button:hover:not(:disabled) {
+  background: #0c263b;
+}
+
+.download-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.save-button {
+  color: #17344d;
+  background: #edf1f5;
+}
+
+.save-button:hover {
+  background: #dfe6ec;
+}
+
+.validation-button {
+  min-width: 150px;
+  color: #ffffff;
+  background: #f5a000;
+}
+
+.validation-button:hover {
+  background: #dc8f00;
+}
+
+/* Schema preview */
+
+.export-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.export-schema-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.export-schema-table th,
+.export-schema-table td {
+  min-width: 110px;
+  padding: 13px;
+  border: 1px solid #d9e0e6;
+  text-align: left;
+  font-size: 14px;
+}
+
+.export-schema-table th {
+  color: #69737f;
+  background: #eef2f6;
+  font-weight: 700;
+}
+
+.export-schema-table td {
+  color: #344658;
+  background: #ffffff;
+}
+
+/* Final checks */
+
+.final-checks-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.final-checks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.final-checks-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.final-checks-list li strong {
+  flex: 1;
+  font-size: 15px;
+}
+
+.check-status {
+  display: grid;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+.check-passed {
+  color: #16a756;
+  background: #d9f8e5;
+}
+
+.check-failed {
+  color: #d93636;
+  background: #ffe2e2;
+}
+
+.required-text {
+  color: #7b8490;
+  font-size: 14px;
+}
+
+.export-success-message {
+  margin-bottom: 22px;
+  padding: 14px 18px;
+  border: 1px solid #a9dfbd;
+  border-radius: 8px;
+  color: #087637;
+  background: #e3f8eb;
+}
+
+/* Responsive design */
+
+@media (max-width: 1000px) {
+  .export-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .export-page {
+    padding: 20px;
+  }
+
+  .export-header,
+  .final-checks-header {
+    flex-direction: column;
+  }
+
+  .export-header h1 {
+    font-size: 28px;
+  }
+
+  .export-status {
+    align-self: flex-start;
+  }
+
+  .export-actions {
+    flex-direction: column;
+  }
+
+  .export-button,
+  .validation-button {
+    width: 100%;
+  }
+
+  .final-checks-list li {
+    align-items: flex-start;
+  }
+
+  .required-text {
+    display: none;
+  }
+}

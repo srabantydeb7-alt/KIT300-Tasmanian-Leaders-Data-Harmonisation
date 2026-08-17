@@ -94,6 +94,26 @@
   font-size: 16px;
 }
 
+.statistics-loading {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 28px;
+  border: 1px solid #d9e0e6;
+  border-radius: 12px;
+  color: #6e7782;
+  background: #ffffff;
+  text-align: center;
+}
+
+.overview-error {
+  margin: 0 0 24px;
+  padding: 14px 18px;
+  border: 1px solid #f0b8b8;
+  border-radius: 8px;
+  color: #a32828;
+  background: #fff0f0;
+}
+
 /* Page grids */
 
 .overview-middle-grid,
@@ -188,16 +208,7 @@
 /* Latest run */
 
 .latest-run-card p {
-  margin-bottom: 22px;
-}
-
-.review-badge {
-  display: inline-block;
-  padding: 11px 16px;
-  border-radius: 10px;
-  color: #9b4a08;
-  background: #fff0bd;
-  font-weight: 700;
+  margin-bottom: 0;
 }
 
 /* Staff actions */

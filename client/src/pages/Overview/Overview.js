@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./PageStyle.css";
+import "./PageStyles.css";
 
 function Overview() {
   const navigate = useNavigate();
@@ -8,25 +8,25 @@ function Overview() {
   const statistics = [
     {
       id: 1,
-      value: 226,
+      value: 0,
       label: "unique datasets available",
       colour: "#2c69e8",
     },
     {
       id: 2,
-      value: 661,
+      value: 0,
       label: "normalised question variants",
       colour: "#7d3ee6",
     },
     {
       id: 3,
-      value: 18,
+      value: 0,
       label: "active validation warnings",
       colour: "#f5a000",
     },
     {
       id: 4,
-      value: 3,
+      value: 0,
       label: "ready for export",
       colour: "#16a756",
     },
