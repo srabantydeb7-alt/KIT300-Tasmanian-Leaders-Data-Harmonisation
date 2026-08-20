@@ -1,0 +1,348 @@
+/* ===== Page ===== */
+
+.ar-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 24px 28px 32px;
+  background: #f7f9fc;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  color: #17324d;
+}
+
+
+/* ===== Top heading ===== */
+
+.ar-top {
+  max-width: 920px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.ar-top h1 {
+  margin: 0 0 7px;
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #102f4c;
+}
+
+.ar-top p {
+  margin: 0;
+  max-width: 620px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #6d7f91;
+}
+
+.ar-back-button {
+  margin-top: 5px;
+  padding: 7px 13px;
+  border: 1px solid #d9e1e8;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #17324d;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ar-back-button:hover {
+  background: #f0f3f6;
+}
+
+
+/* ===== Error ===== */
+
+.ar-error {
+  max-width: 720px;
+  margin-bottom: 14px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  background: #fbe7e5;
+  color: #c0392b;
+  font-size: 12px;
+}
+
+
+/* ===== Shared cards ===== */
+
+.ar-card {
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #dfe6ed;
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.ar-card h2 {
+  margin: 0 0 13px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #17324d;
+}
+
+
+/* ===== Rule details ===== */
+
+.ar-details-card {
+  width: 720px;
+  margin-bottom: 18px;
+}
+
+.ar-grid-three {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr;
+  gap: 16px;
+}
+
+
+/* ===== Source + Target ===== */
+
+.ar-source-target {
+  width: 720px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-bottom: 18px;
+}
+
+.ar-source-target .ar-card {
+  min-height: 165px;
+}
+
+
+/* ===== Form fields ===== */
+
+.ar-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ar-gap {
+  margin-top: 14px;
+}
+
+.ar-field label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #314b63;
+}
+
+.ar-field input,
+.ar-field select {
+  width: 100%;
+  height: 36px;
+  box-sizing: border-box;
+  padding: 7px 10px;
+  border: 1px solid #d4dde6;
+  border-radius: 5px;
+  background: #f9fbfc;
+  color: #253d53;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.ar-field input:focus,
+.ar-field select:focus,
+.ar-notes-card textarea:focus {
+  outline: none;
+  border-color: #168c73;
+  box-shadow: 0 0 0 2px rgba(22, 140, 115, 0.1);
+}
+
+
+/* ===== Harmonisation rule + Preview ===== */
+
+.ar-rule-preview-card {
+  width: 720px;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 28px;
+  margin-bottom: 10px;
+}
+
+.ar-rule-column,
+.ar-preview-column {
+  min-width: 0;
+}
+
+.ar-example {
+  margin: 7px 0 0;
+  font-size: 10px;
+  color: #94a3b2;
+}
+
+
+/* ===== Preview ===== */
+
+.ar-preview {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 4px;
+}
+
+.ar-preview-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 7px;
+  border: 1px solid #dce4eb;
+  border-radius: 4px;
+  background: #f9fbfc;
+  font-size: 11px;
+  color: #334d64;
+}
+
+.ar-preview-item strong {
+  color: #087d62;
+}
+
+.ar-retained {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 10px;
+  color: #8899aa;
+}
+
+
+/* ===== Notes ===== */
+
+.ar-notes-card {
+  width: 720px;
+  padding: 11px 14px 13px;
+}
+
+.ar-notes-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.ar-notes-title label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #17324d;
+}
+
+.ar-notes-title span {
+  font-size: 9px;
+  color: #9aa8b5;
+}
+
+.ar-notes-card textarea {
+  width: 100%;
+  min-height: 45px;
+  box-sizing: border-box;
+  resize: vertical;
+  padding: 9px 10px;
+  border: 1px solid #b8dce7;
+  border-radius: 4px;
+  background: #e7f7fc;
+  color: #2d465b;
+  font-family: inherit;
+  font-size: 11px;
+}
+
+
+/* ===== Bottom actions ===== */
+
+.ar-actions {
+  width: 920px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.ar-cancel-button,
+.ar-save-button {
+  padding: 9px 17px;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ar-cancel-button {
+  border: none;
+  background: #f1f3f5;
+  color: #35495c;
+}
+
+.ar-cancel-button:hover {
+  background: #e6eaee;
+}
+
+.ar-save-button {
+  border: none;
+  background: #12866d;
+  color: #ffffff;
+}
+
+.ar-save-button:hover {
+  background: #0d705b;
+}
+
+.ar-save-button:disabled,
+.ar-cancel-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* ===== Responsive ===== */
+
+@media (max-width: 780px) {
+  .ar-top,
+  .ar-details-card,
+  .ar-source-target,
+  .ar-rule-preview-card,
+  .ar-notes-card,
+  .ar-actions {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ar-grid-three {
+    grid-template-columns: 1fr;
+  }
+
+  .ar-source-target {
+    grid-template-columns: 1fr;
+  }
+
+  .ar-rule-preview-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .ar-page {
+    padding: 18px 14px 28px;
+  }
+
+  .ar-top {
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+
+  .ar-back-button {
+    align-self: flex-end;
+  }
+
+  .ar-actions {
+    flex-direction: column-reverse;
+  }
+
+  .ar-cancel-button,
+  .ar-save-button {
+    width: 100%;
+  }
+}
