@@ -1,48 +1,91 @@
 # KIT300 Tasmanian Leaders Data Harmonisation Platform
 
-This project is being developed as part of KIT300 Professional Experience at the University of Tasmania.
+A complete local/internal workflow for turning differently structured survey files into repeatable, traceable, harmonised outputs.
 
-## Project purpose
+## What works
 
-The system supports a repeatable data harmonisation process for Tasmanian Leaders survey datasets.
+- CSV, XLSX, and XLS import with file-size and content checks
+- Source profiling: columns, types, missing values, identifiers, duplicate identifiers, and detected numeric scales
+- Exact/alias question mapping plus advisory token-similarity suggestions
+- Human approval, manual remapping, explicit exclusion, and approved-rule selection per question
+- Editable, immutable rule versions using typed transformations (`identity`, `linear`, `reverse`, and `categoricalMap`)
+- Deterministic long-format harmonisation with original question/value and source location retained
+- HMAC-pseudonymised identifiers; raw identifiers are excluded from saved run payloads and exports
+- Located validation errors/warnings and export gating
+- Persistent saved runs and automatic resume after restart
+- Harmonised, validation, unmapped-question, and mapping CSV exports
+- Downloadable run-summary PDF
+- Responsive Overview, Datasets, Mapping, Scale Rules, Validation, and Export screens
 
-## Main functions
+## Quick start
 
-- Upload CSV datasets
-- Map inconsistent survey questions
-- Transform data into a common format
-- Validate processed data
-- Report mapped and unmapped questions
-- Export harmonised datasets
+Requires Node.js 20 or newer.
 
-## Technology
+```bash
+npm run setup
+npm run dev
+```
 
-- React.js
-- JavaScript
-- Node.js
-- Express.js
+Open [http://127.0.0.1:5173](http://127.0.0.1:5173). The API runs at `http://127.0.0.1:5050`.
 
-## Repository structure
+Choose **Load demonstration run** for an immediate end-to-end example, or upload [`sample-data/tasmanian-leaders-demo.csv`](sample-data/tasmanian-leaders-demo.csv).
 
-- `frontend/` – React user interface
-- `backend/` – Node.js processing system
-- `docs/` – system design and documentation
-- `tests/` – system tests
-- `sample-data/` – sanitised test datasets
+## Production-style local run
 
-## Team
+Build the React app, then serve the UI and API together from the Express server:
 
-KIT300 Data Harmonisation Evaluation Dashboard Team.
-## Sprint 2 Development Responsibilities
+```bash
+npm run build
+npm start
+```
 
-| Team Member | Responsibility |
-| --- | --- |
-| **Paritosh Upadhyay** | Overview and Export pages - frontend and backend |
-| **Mayur Sachin Borkar** | Datasets and Mapping pages - frontend and backend |
-| **Rabbi** | Scale and Validation pages - frontend and backend |
-| **Promit Das Midul** | Rule Library and manual Add/Edit Rule functionality - frontend and backend |
-| **Srabanty Deb** | UI/UX design and frontend visual refinement |
-| **Kanchan Karki** | UI/UX design and frontend visual refinement |
-## Privacy
+Open [http://127.0.0.1:5050](http://127.0.0.1:5050).
 
-Confidential client data, personal information, credentials, and environment files must not be uploaded to this repository.
+## Workflow
+
+1. **Datasets** - upload a survey and enter program, year, round, and quality tier metadata.
+2. **Mapping** - review confidence scores; approve, change, or exclude every question.
+3. **Scale rules** - inspect or add an approved typed conversion rule and rounding policy.
+4. **Validation** - run deterministic conversion and inspect located schema, mapping, range, missing-value, and duplicate issues.
+5. **Export** - once blocking issues are resolved, download the harmonised data and audit outputs.
+
+The same source data, mapping decisions, and rule versions produce the same canonical output hash.
+
+## Verification
+
+```bash
+npm test
+npm run coverage
+npm run build
+npm run audit
+```
+
+Or run the combined release check:
+
+```bash
+npm run verify
+```
+
+## Privacy and deployment boundary
+
+This release is intentionally an unauthenticated, single-user internal/local tool. The server binds to `127.0.0.1` by default and accepts local browser origins. Add organisational authentication, authorisation, TLS, retention rules, and managed encrypted storage before exposing it on a shared or public network.
+
+- Uploaded raw files and application data are excluded from Git.
+- Each raw upload is deleted after secure parsing. The private workspace retains pseudonymised response rows, original question/value evidence, and the source checksum, not the original participant-identifying file.
+- A random HMAC secret is created locally on first run unless `HARMONISATION_HMAC_SECRET` is supplied.
+- A supplied HMAC secret must be at least 32 bytes.
+- Identifier-like columns are detected from headers and email/phone-shaped values, then removed from public run state.
+- Spreadsheet cells beginning with formula characters are escaped in CSV output.
+
+Copy [`.env.example`](.env.example) values into your local environment when customising storage, ports, or allowed origins. Never commit real participant data or secrets.
+
+For a non-default API address during client development, create `client/.env.local` with `VITE_API_URL=http://127.0.0.1:5050`.
+
+## Project structure
+
+- `client/` - React workbench and UI tests
+- `server/` - Express API, harmonisation services, persistence, exports, and tests
+- `sample-data/` - sanitised demonstration input
+- `docs/testing/` - TDD and verification evidence
+
+Developed for KIT300 Professional Experience at the University of Tasmania.

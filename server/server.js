@@ -1,19 +1,13 @@
-const express = require("express");
-const cors = require("cors");
+const { createApp } = require("./app");
 
-const app = express();
 const PORT = process.env.PORT || 5050;
+const HOST = process.env.HOST || "127.0.0.1";
+const app = createApp();
 
-app.use(cors());
-app.use(express.json());
-
-app.get("/api/health", (req, res) => {
-  res.json({
-    status: "ok",
-    message: "KIT300 Data Harmonisation API is running",
+if (require.main === module) {
+  app.listen(PORT, HOST, () => {
+    console.log(`Server running on http://${HOST}:${PORT}/api/health`);
   });
-});
+}
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}/api/health`);
-});
+module.exports = app;

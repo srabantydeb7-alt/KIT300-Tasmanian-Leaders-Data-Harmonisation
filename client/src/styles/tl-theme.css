@@ -1,0 +1,87 @@
+/*
+  Tasmanian Leaders brand tokens.
+
+  Source: Tasmanian_Leaders_Frontend_Final (frontend prototype handoff) -
+  css/tasmanian-leaders-theme-readable.css. The palette, semantic state
+  colours and shadows are that stylesheet's; they are lifted here unchanged so
+  the workbench and the prototype stay visually identical.
+
+  The workbench keeps its own component class names, so the second block below
+  maps these brand tokens onto the variable names App.css already uses. Change
+  a colour here and it propagates through the whole UI.
+
+  Rule carried over from the handoff: the backend returns data and status
+  values only ("status": "warning"), never presentation ("statusColor": "#..").
+  This file decides how each state looks.
+*/
+
+:root {
+  /* Primary Tasmanian Leaders purple */
+  --tl-purple: #44358a;
+  --tl-purple-dark: #34276e;
+  --tl-purple-darker: #2a1f58;
+  --tl-purple-mid: #7165a5;
+  --tl-purple-soft: #f2eff8;
+  --tl-purple-light: #faf9fc;
+
+  /* Olive accent: highlights, progress, active indicators */
+  --tl-olive: #aaa33f;
+  --tl-olive-dark: #7c7830;
+  --tl-olive-soft: #f0f0dd;
+
+  /* Neutrals */
+  --tl-white: #ffffff;
+  --tl-page-bg: #f6f4f8;
+  --tl-text: #2e2c33;
+  --tl-text-secondary: #57515d;
+  --tl-muted: #6e6973;
+  --tl-muted-soft: #8b8494;
+
+  /* Borders */
+  --tl-border: #ddd8e7;
+  --tl-border-soft: #ece8f1;
+  --tl-border-strong: #c9c1da;
+
+  /* Semantic states */
+  --tl-success: #65702a;
+  --tl-success-bg: #eff0dd;
+  --tl-success-border: #d8dbb4;
+
+  --tl-warning: #b16f22;
+  --tl-warning-bg: #f8eedb;
+
+  --tl-error: #a6403b;
+  --tl-error-bg: #f6e3df;
+  --tl-error-border: #e6c3bc;
+
+  --tl-info: #44358a;
+  --tl-info-bg: #efedf7;
+  --tl-info-track: #e2def0;
+
+  /* Shadows */
+  --tl-shadow-soft: 0 5px 18px rgba(52, 39, 110, 0.05);
+  --tl-shadow: 0 16px 40px rgba(52, 39, 110, 0.09);
+}
+
+/*
+  Bridge: the workbench's existing component variables, re-pointed at the
+  brand palette above. Nothing below introduces a new colour.
+*/
+:root {
+  --navy: var(--tl-purple-dark);
+  --navy-strong: var(--tl-purple-darker);
+  --teal: var(--tl-olive-dark);
+  --blue: var(--tl-purple);
+  --green: var(--tl-success);
+  --amber: var(--tl-warning);
+  --red: var(--tl-error);
+  --purple: var(--tl-purple-mid);
+
+  --ink: var(--tl-text);
+  --muted: var(--tl-muted);
+  --line: var(--tl-border);
+  --surface: var(--tl-white);
+  --canvas: var(--tl-page-bg);
+  --soft: var(--tl-purple-soft);
+  --shadow: var(--tl-shadow);
+}
