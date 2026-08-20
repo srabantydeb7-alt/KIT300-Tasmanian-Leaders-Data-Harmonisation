@@ -1,11 +1,16 @@
 const express = require("express");
 const cors = require("cors");
 
+const rulesRouter = require("./Routes/rules");
+
 const app = express();
 const PORT = process.env.PORT || 5050;
 
 app.use(cors());
 app.use(express.json());
+
+// Rule Library API
+app.use("/api/rules", rulesRouter);
 
 app.get("/api/health", (req, res) => {
   res.json({
