@@ -1,13 +1,17 @@
 const express = require("express");
 const cors = require("cors");
+const exportRoutes = require("./Routes/export");
+const overviewRoutes = require("./Routes/overview");
 
 const rulesRouter = require("./Routes/rules");
 
 const app = express();
-const PORT = process.env.PORT || 5050;
+const PORT = process.env.PORT || 5001;
 
 app.use(cors());
 app.use(express.json());
+app.use("/api/overview", overviewRoutes);
+app.use("/api/export", exportRoutes);
 
 // Rule Library API
 app.use("/api/rules", rulesRouter);
@@ -20,5 +24,5 @@ app.get("/api/health", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}/api/health`);
+  console.log(`Server running on port ${PORT}`);
 });
