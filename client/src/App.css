@@ -32,3 +32,141 @@
 .choice-list{min-width:0}.choice-list label>span{min-width:0}.choice-list strong,.choice-list small{overflow-wrap:anywhere}
 .mapping-toolbar { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin:2px 0 14px; }.filter-chips { display:flex; flex-wrap:wrap; gap:6px; }.chip { border:1px solid var(--line); background:var(--tl-white); color:var(--muted); border-radius:999px; padding:6px 12px; font-size:12px; font-weight:800; display:inline-flex; align-items:center; gap:6px; transition:background 120ms,border-color 120ms,color 120ms; }.chip span { background:var(--soft); border-radius:999px; padding:1px 7px; font-size:11px; color:var(--muted); }.chip:hover { border-color:var(--tl-purple-mid); color:var(--navy); }.chip.active { background:var(--navy); border-color:var(--navy); color:var(--tl-white); }.chip.active span { background:rgba(255,255,255,.22); color:var(--tl-white); }.bulk-approve { white-space:nowrap; }
 .file-notice { margin:10px 0 0; padding:9px 12px; border-radius:8px; border-left:4px solid var(--amber); background:var(--tl-warning-bg); color:var(--ink,#2e2c33); font-size:12px; line-height:1.5; }
+/* Srabanty - official Tasmanian Leaders logo */
+
+.brand-logo-wrap {
+  width: 58px;
+  height: 54px;
+  flex: 0 0 58px;
+
+  display: grid;
+  place-items: center;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  border: 1px solid var(--tl-border-soft);
+
+  box-shadow:
+    0 5px 16px rgba(52, 39, 110, 0.07);
+
+  transition:
+    border-color 140ms ease,
+    box-shadow 140ms ease,
+    transform 140ms ease;
+}
+
+.brand-logo-img {
+  width: 52px;
+  height: 48px;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+.brand-copy {
+  min-width: 0;
+}
+
+.brand:hover .brand-logo-wrap {
+  transform: translateY(-1px);
+
+  border-color: var(--tl-border-strong);
+
+  box-shadow:
+    0 8px 20px rgba(52, 39, 110, 0.11);
+}
+
+/* Processing status */
+
+.processing-banner {
+  position: fixed;
+
+  z-index: 46;
+
+  top: 102px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width:
+    min(
+      520px,
+      calc(100vw - 40px)
+    );
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 13px 16px;
+
+  border: 1px solid var(--tl-border);
+  border-radius: 11px;
+
+  color: var(--navy);
+
+  background: rgba(255, 255, 255, 0.97);
+
+  box-shadow:
+    0 16px 38px rgba(52, 39, 110, 0.14);
+}
+
+.processing-banner strong,
+.processing-banner small {
+  display: block;
+}
+
+.processing-banner small {
+  margin-top: 3px;
+
+  color: var(--muted);
+
+  font-size: 11px;
+}
+
+.processing-spinner {
+  width: 22px;
+  height: 22px;
+
+  flex: 0 0 22px;
+
+  border:
+    3px solid var(--tl-info-track);
+
+  border-top-color: var(--tl-purple);
+  border-right-color: var(--tl-olive);
+
+  border-radius: 50%;
+
+  animation:
+    srabanty-spinner
+    0.8s linear infinite;
+}
+
+@keyframes srabanty-spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive logo */
+
+@media (max-width: 760px) {
+  .brand-logo-wrap {
+    width: 44px;
+    height: 42px;
+
+    flex-basis: 44px;
+  }
+
+  .brand-logo-img {
+    width: 40px;
+    height: 36px;
+  }
+}
