@@ -112,11 +112,13 @@ function WorkspaceLayout({
                   activePage === id ? "page" : undefined
                 }
               >
-                <span aria-hidden="true">
+                <span className="nav-number" aria-hidden="true">
                   {index + 1}
                 </span>
 
-                {label}
+                <span className="nav-label">
+                  {label}
+                </span>
               </button>
             ))}
           </nav>
