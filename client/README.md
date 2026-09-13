@@ -1,6 +1,6 @@
 # Harmonisation client
 
-React 19 and Vite power the six-screen data harmonisation workspace.
+React 19 and Vite power the harmonisation workspace: Overview, Datasets, Mapping, Response Standardisation, Validation, Export, and Configuration screens. Workflow progress and next-action guidance come from the server so every screen applies the same readiness rules.
 
 ```bash
 npm start

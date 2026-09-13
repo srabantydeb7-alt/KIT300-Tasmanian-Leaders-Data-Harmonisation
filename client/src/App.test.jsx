@@ -32,7 +32,7 @@ test("renders the complete harmonisation workflow navigation", async () => {
   expect(await screen.findByRole("heading", { name: /survey harmonisation workbench/i })).toBeInTheDocument();
   expect(screen.getByRole("button", { name: /datasets/i })).toBeInTheDocument();
   expect(screen.getByRole("button", { name: /mapping/i })).toBeInTheDocument();
-  expect(screen.getByRole("button", { name: /scale rules/i })).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: /response standardisation/i })).toBeInTheDocument();
   expect(screen.getByRole("button", { name: /validation/i })).toBeInTheDocument();
   expect(screen.getByRole("button", { name: /export/i })).toBeInTheDocument();
 });
@@ -40,8 +40,8 @@ test("renders the complete harmonisation workflow navigation", async () => {
 test("moves between workflow pages without losing the active workspace", async () => {
   render(<App />);
 
-  fireEvent.click(await screen.findByRole("button", { name: /scale rules/i }));
-  expect(screen.getByRole("heading", { name: /scale conversion rules/i })).toBeInTheDocument();
+  fireEvent.click(await screen.findByRole("button", { name: /response standardisation/i }));
+  expect(screen.getByRole("heading", { name: /response standardisation/i })).toBeInTheDocument();
 
   fireEvent.click(screen.getByRole("button", { name: /validation/i }));
   expect(screen.getByRole("heading", { name: /validation and traceability/i })).toBeInTheDocument();
@@ -115,13 +115,13 @@ test("completes a live demo mapping, processing, rule, and resume workflow", asy
   render(<App />);
   fireEvent.click(await screen.findByRole("button", { name: /load demonstration run/i }));
   expect(await screen.findByRole("heading", { name: /question mapping review/i })).toBeInTheDocument();
-  fireEvent.click(screen.getByRole("button", { name: "Resolve" }));
+  fireEvent.click(screen.getByRole("button", { name: /change mapping for influence/i }));
   fireEvent.click(screen.getByRole("button", { name: /save mapping decision/i }));
   await screen.findByText(/100% resolved/i);
   fireEvent.click(screen.getByRole("button", { name: /run harmonisation/i }));
   expect(await screen.findByRole("heading", { name: /validation and traceability/i })).toBeInTheDocument();
 
-  fireEvent.click(screen.getByRole("button", { name: /scale rules/i }));
+  fireEvent.click(screen.getByRole("button", { name: /response standardisation/i }));
   fireEvent.click(await screen.findByRole("button", { name: /add rule/i }));
   fireEvent.change(screen.getByLabelText(/rule id/i), { target: { value: "scale_test" } });
   fireEvent.change(screen.getByLabelText(/rule name/i), { target: { value: "Test rule" } });

@@ -6,18 +6,18 @@ import WorkspaceLayout from "./components/WorkspaceLayout";
 import OverviewPage from "./pages/Overview/OverviewPage";
 import DatasetsPage from "./pages/Datasets/DatasetsPage";
 import MappingPage from "./pages/Mapping/MappingPage";
-import RulesPage from "./pages/Rules/RulesPage";
+import StandardisationPage from "./pages/Standardisation/StandardisationPage";
 import ValidationPage from "./pages/Validation/ValidationPage";
 import ExportPage from "./pages/Export/ExportPage";
 
-const EMPTY_OVERVIEW = { datasets: 0, questionVariants: 0, warnings: 0, exportable: 0 };
+const EMPTY_OVERVIEW = { awaitingDecision: 0, blockingErrors: 0, exportable: 0, responses: 0 };
 
 function normaliseOverview(data = {}) {
   return {
-    datasets: data.datasets ?? data.uniqueDatasets ?? data.totalRuns ?? 0,
-    questionVariants: data.questionVariants ?? data.normalisedQuestionVariants ?? 0,
-    warnings: data.warnings ?? data.activeValidationWarnings ?? 0,
+    awaitingDecision: data.awaitingDecision ?? 0,
+    blockingErrors: data.blockingErrors ?? 0,
     exportable: data.exportable ?? data.readyForExport ?? 0,
+    responses: data.responsesHarmonised ?? 0,
   };
 }
 
@@ -102,12 +102,12 @@ function App() {
 
   const handleDemo = useCallback(async () => {
     const run = await runAction(() => api.createDemoRun(), "Demonstration survey profiled and ready for review.");
-    if (run) setActivePage("mapping");
+    if (run) setActivePage(run.nextAction?.page || "mapping");
   }, [runAction]);
 
   const handleUpload = useCallback(async (formData) => {
     const run = await runAction(() => api.uploadDataset(formData), "Dataset securely parsed, pseudonymised, and profiled.");
-    if (run) setActivePage("mapping");
+    if (run) setActivePage(run.nextAction?.page || "mapping");
     return Boolean(run);
   }, [runAction]);
 
@@ -119,12 +119,28 @@ function App() {
     ));
   }, [activeRun, runAction]);
 
-  const handleProcess = useCallback(async () => {
+  const handleClassification = useCallback(async (classification) => {
     if (!activeRun) return false;
     return Boolean(await runAction(
+      () => api.updateClassification(activeRun.id, classification),
+      "Field classification saved. Question matching can now continue.",
+    ));
+  }, [activeRun, runAction]);
+
+  const handleHarmonisationTransform = useCallback(async (transform) => {
+    if (!activeRun) return false;
+    return Boolean(await runAction(
+      () => api.updateHarmonisationTransform(activeRun.id, transform),
+      "Harmonisation transform saved for this question.",
+    ));
+  }, [activeRun, runAction]);
+
+  const handleProcess = useCallback(async () => {
+    if (!activeRun) return false;
+    return runAction(
       () => api.processRun(activeRun.id),
       "Harmonisation and validation completed deterministically.",
-    ));
+    );
   }, [activeRun, runAction]);
 
   const handleCreateRule = useCallback(async (rule) => {
@@ -160,15 +176,17 @@ function App() {
   const pageProps = useMemo(() => ({
     run: activeRun, runs, rules, questions, busy, onNavigate: setActivePage,
     onDemo: handleDemo, onUpload: handleUpload, onSelectRun: handleSelectRun,
-    onSaveMapping: handleMapping, onProcess: handleProcess, onCreateRule: handleCreateRule,
+    onSaveClassification: handleClassification, onSaveMapping: handleMapping,
+    onSaveHarmonisationTransform: handleHarmonisationTransform, onProcess: handleProcess, onCreateRule: handleCreateRule,
     onCreateRuleVersion: handleCreateRuleVersion,
-  }), [activeRun, busy, handleCreateRule, handleCreateRuleVersion, handleDemo, handleMapping, handleProcess, handleSelectRun, handleUpload, questions, rules, runs]);
+  }), [activeRun, busy, handleClassification, handleCreateRule, handleCreateRuleVersion, handleDemo, handleHarmonisationTransform, handleMapping, handleProcess, handleSelectRun, handleUpload, questions, rules, runs]);
 
   const pages = {
     overview: <OverviewPage overview={overview} {...pageProps} />,
     datasets: <DatasetsPage {...pageProps} />,
     mapping: <MappingPage {...pageProps} />,
-    rules: <RulesPage {...pageProps} />,
+    standardisation: <StandardisationPage {...pageProps} />,
+    rules: <StandardisationPage {...pageProps} />,
     validation: <ValidationPage {...pageProps} />,
     export: <ExportPage {...pageProps} />,
   };
